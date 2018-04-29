@@ -1,16 +1,31 @@
 # GitSearch
 
-## Description
-
-> This is an angular app which utilizes the github api to retrieve, search and display people's Github account details.
-
-This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
-
 ## Author
 
 > By **Sarah Marion**
 
 > -----------------------------------------------------------
+
+## Description
+
+> This is an angular app which utilizes the github api to retrieve, search and display people's Github account details.
+> https://sarah-marion.github.io/Gitsearch/
+
+> This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
+
+## Requirements (for Users)
+
+> * A user can search a Github username
+> * A user can view a person's profile
+> * A user can see  detailed information of a person's various repositories 
+> * A user can refresh the page by clicking on the header
+
+## Technical Requirements
+
+> * Placing of access key within the envionment.ts file and placing it within the gitignore file
+> * Http service that uses a promise to make requests to GitHub Api
+> * Project must have two classes.One for the user and another for the repository
+> * Should have a separate routing module that links a Github Username to the users Github repositories
 
 ## Development server
 
@@ -35,6 +50,14 @@ Run `ng e2e` to execute the end-to-end tests via [Protractor](http://www.protrac
 ## Further help
 
 To get more help on the Angular CLI use `ng help` or go check out the [Angular CLI README](https://github.com/angular/angular-cli/blob/master/README.md).
+
+## Technologies Used
+
+> * AngularJs
+> * Node - for Dependancy Management
+> * Bootstrap
+> * Custom Css
+> * Html
 
 ## Known Bugs
 
