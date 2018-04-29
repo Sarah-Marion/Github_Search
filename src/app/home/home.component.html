@@ -1,3 +1,189 @@
-<p>
-  home works!
-</p>
+<nav class="navbar navbar-toggleable-md navbar-light bg-faded">
+  <button class="navbar-toggler navbar-toggler-right" type="button" data-toggle="collapse" data-target="#navbarSupportedContent"
+    aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav mr-auto">
+      <li class="nav-item active">
+        <a class="nav-link" href="#">
+            <span style="color: grey; font-size: 1.2em;">GitHub Search</span>
+            <span class="sr-only">(current)</span>
+          </a>
+          </li>
+        <li class="nav-item">
+            <a class="nav-link" href="#">
+              <span style="color: rgba(255, 255, 255, 0.7); font-size: 1.2em;">Home</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </nav>
+
+<div class="container">
+  <header>
+    <div class="width">
+      <h1><a href="/">GitHub Search</a></h1>
+    </div>
+  </header>
+</div>
+<div class="container">
+  <div class="row">
+    <div class="col-md-3">
+<form (ngSubmit)="getDate(dateCount)" #dateCount='ngForm'>
+<div class="form-group">
+    <label for="timeCreated"><span style="color: darkbrown">Date</span></label>
+    <input type="date" class="form-control" id="timeCreated" [(ngModel)]="userProfile.timeCreated" name="timeCreated" #timeCreated="ngModel" required>
+    <p id="{{i}}">~Logged in {{ userName | dateCount }} days ago~</p>
+    <div [hidden]="timeCreated.valid || timeCreated.pristine" class="alert alert-danger">
+
+    </div>
+  </div>
+</form>
+</div>
+<div class="col-md-6">
+<div id="body" class="width">
+    <p class="text-center">Welcome, Kindly enter a GitHub Repository or Username & Search!!</p>
+    
+    <form class="ml-auto">
+      <input type="text" class="form-control mr-sm-1" name="username" method="get" action="#" placeholder="Who are you Looking for?" [(ngModel)]='username'
+          (keyup)="searchUserProfile()">
+          <button class="btn btn-primary" (on-click)="doSearch(search.value)">Search</button>
+      </form>
+    </div>
+    </div>
+  </div>
+      
+    <aside class="sidebar small-sidebar left-sidebar">
+      <!-- <ul>
+        <li class="text">
+          <form class="searchform" >
+            <p>
+              <input type="text" placeholder="Who are you looking for?" #search class="s">
+              
+            </p>
+          </form>
+        </li>
+      </ul> -->
+      <div class="container">
+      <div class="row">
+        <div class="col-md-4">
+        <h3 appHighlight *ngIf="userProfile.login === count && userProfile.login>0"> {{userProfile.login}} </h3>
+            <h3 class='userName'>
+              <span style='color: rgba(184, 110, 110, 0.644)'>{{userProfile.login}}</span>
+            </h3>
+            <span id="a"><img class="img-circle center-block" src="{{userProfile.avatar_url}}" alt="User Avatar" class="img-responsive profile-img img-thumbnail"></span>
+        <br>
+        <br>
+        <a class="btn btn-inverse" style="width: inherit;" href={{userProfile.html_url}} target="_blank"> View Profile</a>
+      </div>
+    </div>
+  </div>
+
+      <!-- <ul *ngFor="let owner of AS.results2">
+        <span id="a"><img class="img-circle center-block" src="{{owner.avatar_url}}" alt="user avatar"></span>
+        <span id="b">
+                  <p>
+                <li class="button">NAME: <a  href="{{owner.html_url}}">{{owner.login}}</a></li>
+                <button class="button">Followers: {{owner.followers}}</button>
+                <button class="button">Following: {{owner.following}}</button>
+                <button class="button">Repositories: {{owner.public_repos}}</button>
+            </span>
+      </ul> -->
+    </aside>
+    <section id="content" class="three-column">
+      <div class="text-center center-block">
+        <p class="lead" id="loading" *ngIf="loading">Loading . . . . Please wait</p>
+      </div>
+      <!-- <article class="mid-section">
+        <h2>USERS REPOSITORIES</h2>
+        <hr>
+        <ul class="center-block">
+          <li *ngFor="let item of AS.results" class="button button-reversed">
+            REPO-NAME: <a target="_blank" href="{{item.html_url}}">{{item.name}}</a>
+            <br>DESCRIPTION: {{item.description}}
+            <br>FORKS: {{item.forks}}
+            <br>WATCHERS: {{item.watchers}}
+            <br>STARS: {{item.stargazers_count}}
+          </li>
+          <li *ngIf="AS.isEmptyObject(AS.results)" class="repofound">
+            No user repos!
+          </li>
+        </ul>
+      </article> -->
+    </section>
+    
+    <div class="col-md-6 offset-md-1" style="margin-top: 1em;">
+        <span class="badge badge-primary">{{userProfile.followers}} Followers</span>
+        <span class="badge badge-success">{{userProfile.following}} Following</span>
+        <span class="badge badge-info">{{userProfile.public_repos}} Repositories</span>
+        <span class="badge badge-warning">{{userProfile.public_gists}} Public Gists</span>
+        <br>
+        <br>
+        <br>
+        <p>
+          <strong>Username:</strong> {{userProfile.name}}</p>
+        <hr>
+        <p *ngIf="userProfile.email">
+            <strong>Email:</strong> {{userProfile.email}}</p>
+          <hr>
+        <p *ngIf="userProfile.bio">
+          <strong>Bio:</strong> {{userProfile.bio}}</p>
+        <hr>
+        <p *ngIf="userProfile.location">
+          <strong>Location:</strong> {{userProfile.location}}</p>
+        <hr>
+        <p><strong>Joined in:</strong> {{userProfile.created_at}}</p>
+        <hr>
+      </div>
+
+      <div class="container">
+          <h3 style='color: rgba(0,0,0,0.6)'>Repositories</h3>
+          <hr>
+          <div *ngFor="let repo of repos">
+            <div class="row">
+              <div class="col-md-9">
+                <h4 style="color: deepskyblue;">
+                  <a href="{{repo.html_url}}" target="_blank">{{repo.name}}</a>
+                </h4>
+                <p>{{repo.description}}</p>
+                <hr>
+              </div>
+              <div class="col-md-3">
+                  <span class="badge badge-warning">{{repo.description}} Description</span>
+                <span class="badge badge-info">{{repo.watchers}} Watchers</span>
+                <span class="badge badge-success">{{repo.forks}} Forks</span>
+                <span class="badge badge-secondary">{{repo.stargazers_count}} Stars</span>
+              </div>
+            </div>
+          </div>
+        </div>
+
+    <!-- <aside class="sidebar small-sidebar right-sidebar">
+      <ul *ngIf="AS.results1">
+        <ul *ngFor="let det of AS.results1">
+          <h3>{{det.total_count}} REPOSITORIES FOUND!!</h3>
+          <ul class="blocklist">
+            <li class="button button-reversed" *ngFor="let detail of AS.results3">
+              <br>REPO-NAME:
+              <a target="_blank" href="{{detail.html_url}}">{{detail.name}}</a>
+              <br>OWNER:<a target="_blank" href="{{detail.owner.html_url}}">{{detail.owner.login}}</a>
+              <br>DESCRIPTION: {{detail.description}}
+              <br>FORKS: {{detail.forks}}
+              <br>WATCHERS: {{detail.watchers}}
+              <br>STARS: {{detail.stargazers_count}}
+            </li>
+          </ul>
+        </ul>
+      </ul>
+      <ul *ngIf="AS.isEmptyObject(AS.results1)" class="repofound">
+        search repos to view them here!
+      </ul>
+    </aside> -->
+    <div class="clear "></div>
+
+    <div class="footer">
+      <p> Created By Sarah Marion &#169; 2018.
+      </p>
+    <!-- </footer> -->
+  </div>
