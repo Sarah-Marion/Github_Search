@@ -53,7 +53,7 @@ export class ApiRequestService {
      let httpOptions = {
        headers: new HttpHeaders({
          'Content-Type': 'application/json',
-         'Authorization': environment.Authorization
+        //  'Authorization': environment.Authorization
        })
      }
      

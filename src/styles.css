@@ -6,7 +6,7 @@
 @import url(https://fonts.googleapis.com/css?family=Crafty+Girls);
 
 body {
-    background-image: url('./assets/back.jpg');
+    /* background-image: url('./assets/back.jpg');
     background-repeat: no-repeat;
     background-size: cover;
     margin: 0;
@@ -14,9 +14,9 @@ body {
     font-family: 'Oxygen', 'sans-serif';
     font-size: 1.0em;
     color: #D3DEE3;
-    font-weight: 300;
+    font-weight: 300; */
   }
-  hr{
+  /* hr{
       color: white;
   }
   h3{
@@ -29,10 +29,19 @@ body {
     padding-top: 3rem;
     padding-bottom: 3rem;
     text-align: center;
+  } */
+
+  .header{
+      text-align: center;
+      background-color: black;
+      color: #BDC3C7 ;
+      padding-left: 0%;
+      padding-right: 0%;
   }
   .footer{
     padding-top: 2rem;
     text-align: center;
-    color: white;
+    background-color: black;
+    color: #BDC3C7 ;
     max-height: 25vh;
   }

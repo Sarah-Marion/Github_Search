@@ -6,8 +6,9 @@ import { Directive, ElementRef, HostListener } from '@angular/core';
 export class HighlightDirective {
 
   constructor(private elem: ElementRef) { 
-    this.elem.nativeElement.style.color = 'gold';
-    this.elem.nativeElement.style.fontsize = '26px';
+    console.log(elem);    
+    this.elem.nativeElement.style.color = '#7B241C';
+    this.elem.nativeElement.style.fontSize = '30px';
   }
 
 }
