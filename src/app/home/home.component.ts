@@ -25,7 +25,9 @@ export class HomeComponent implements OnInit {
      this.AS.results2 = [];
      this.loading = true;
      this.AS.search(term).then(() => this.loading = false)
+    //  console.log(term);
      return false;
+     
    }
 
   ngOnInit() {

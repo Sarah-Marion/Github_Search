@@ -8,10 +8,10 @@
       <div id="body" class="width">
         <p class="text-center">Welcome, Kindly enter a GitHub Repository or Username & Search!!</p>
 
-        <form class="ml-auto">
+        <form (ngSubmit)=doSearch(formSearch)  #formSearch="ngForm">
           <input type="text" class="form-control mr-sm-1" name="username" method="get" action="#" placeholder="Who are you Looking for?"
             [(ngModel)]='username' (keyup)="searchUserProfile()">
-          <button class="btn btn-primary" (on-click)="doSearch(search.value)">Search</button>
+          <!-- <button class="btn btn-primary" type="submit">Search</button> -->
         </form>
       </div>
     </div>
@@ -24,7 +24,7 @@
 <div class="container details">
   <div class="row">
     <div class="col-md-4 image-left" >
-      <h3 *ngIf="userProfile.login === dateCounter && userProfile.login>0"> {{userProfile.login}} </h3>
+      <!-- <h3 *ngIf="userProfile.login === dateCount && userProfile.login>0"> {{userProfile.login}} </h3> -->
       <h3 class='username' appHighlight>
         <span>{{userProfile.login}}</span>
       </h3>
