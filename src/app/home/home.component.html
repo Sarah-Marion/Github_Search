@@ -11,7 +11,7 @@
         <form (ngSubmit)=doSearch(formSearch)  #formSearch="ngForm">
           <input type="text" class="form-control mr-sm-1" name="username" method="get" action="#" placeholder="Who are you Looking for?"
             [(ngModel)]='username' (keyup)="searchUserProfile()">
-          <button class="btn btn-primary" (click)="doSearch(doSearch)">Search</button>
+          <!-- <button class="btn btn-primary" (click)="doSearch(doSearch.value)">Search</button> -->
         </form>
       </div>
     </div>
