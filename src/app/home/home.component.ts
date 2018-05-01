@@ -15,11 +15,6 @@ export class HomeComponent implements OnInit {
   public loading: boolean = false;
   public message_status: boolean = false;
 
-  receiveDate(get){
-  get.timeCreated = new Date (get.timeCreated);
-  this.userProfile.push(get);
-  }
-
   constructor(private ApiRequestService: ApiRequestService,public AS: ApiRequestService, private http: HttpClient) {
     this.message_status = this.AS.message_status;
    }
