@@ -9,7 +9,7 @@
 ## Description
 
 > This is an angular app which utilizes the github api to retrieve, search and display people's Github account details.
-> https://sarah-marion.github.io/Gitsearch/
+> https://sarah-marion.github.io/Github_Search/
 
 > This project was generated with [Angular CLI](https://github.com/angular/angular-cli) version 1.7.4.
 
