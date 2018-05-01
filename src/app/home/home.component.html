@@ -4,23 +4,7 @@
   </h1>
 </div>
 <div class="container-input">
-  <div class="row">
-    <div class="col-md-3">
-      <form (ngSubmit)="getDate(dateCount)" #dateCount='ngForm'>
-        <div class="form-group">
-          <label for="timeCreated">
-            <span style="color: darkbrown">Date</span>
-          </label>
-          <input type="date" class="form-control" id="timeCreated" [(ngModel)]="userProfile.timeCreated" name="timeCreated" #timeCreated="ngModel"
-            required>
-          <p id="{{i}}">~Logged in {{ userName | dateCount }} days ago~</p>
-          <div [hidden]="timeCreated.valid || timeCreated.pristine" class="alert alert-danger">
-
-          </div>
-        </div>
-      </form>
-    </div>
-    <div class="col-md-6">
+    <div class="col-md-4">
       <div id="body" class="width">
         <p class="text-center">Welcome, Kindly enter a GitHub Repository or Username & Search!!</p>
 
@@ -32,7 +16,6 @@
       </div>
     </div>
   </div>
-</div>
 <section id="content" class="three-column">
   <div class="text-center center-block">
     <p class="lead" id="loading" *ngIf="loading">Loading . . . . Please wait</p>
