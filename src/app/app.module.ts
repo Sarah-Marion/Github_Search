@@ -1,7 +1,6 @@
 import { BrowserModule } from '@angular/platform-browser';
 import { NgModule } from '@angular/core';
 import { FormsModule } from '@angular/forms';
-import { RouterModule, Routes } from '@angular/router';
 
 
 import { AppComponent } from './app.component';
@@ -12,14 +11,6 @@ import { NotFoundComponent } from './not-found/not-found.component';
 import {RoutingModule} from './routing/routing.module';
 import { HighlightDirective } from './highlight.directive';
 import { DateCountPipe } from './date-count.pipe';
-
-const routes:Routes=[
-  {path:"home",component:HomeComponent},
-  {path:"",redirectTo:"/home",pathMatch:"full"},
-  {path:'**',component:NotFoundComponent}
-]
-  
-  
 
 @NgModule({
   declarations: [
@@ -33,8 +24,7 @@ const routes:Routes=[
     BrowserModule,
     FormsModule,
     HttpClientModule,
-    RoutingModule,
-    RouterModule.forRoot(routes)
+    RoutingModule
   ],
   providers: [ApiRequestService],
   bootstrap: [AppComponent]

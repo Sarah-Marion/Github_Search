@@ -42,7 +42,7 @@ export class HomeComponent implements OnInit {
   }
   searchUserProfile() {
     this.ApiRequestService.updateUserProfile(this.username);
-
+    // console.log(this.doSearch(this.username));
     this.ApiRequestService.getUserProfile().subscribe(users => {
       this.userProfile = users;
     });
